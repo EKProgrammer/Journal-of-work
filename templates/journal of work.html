@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2 align="center">Works log</h2>
+    {% for num in range(1, 4) %}
+    <h3>Action # {{ num }}</h3>
+    <table>
+        <tr bgcolor="#A9A9A9">
+            <td width="350">Title of activity</td>
+            <td width="100" align="center">Team leader</td>
+            <td width="100" align="center">Duration</td>
+            <td width="150" align="center">List of collaborators</td>
+            <td width="100" align="center">Is finished</td>
+        </tr>
+        <tr bgcolor="#C8C8C8">
+            <td>{{ table[num - 1][0] }}</td>
+            <td align="center">{{ table[num - 1][1] }}</td>
+            <td align="center">{{ table[num - 1][2] }} hours</td>
+            <td align="center">{{ table[num - 1][3] }}</td>
+            {% if not table[num - 1][4] %}
+            <td align="center">Is not finished</td>
+            {% else %}
+            <td align="center">Is finished</td>
+            {% endif %}
+        </tr>
+    </table>
+    <br>
+    {% endfor %}
+{% endblock %}
